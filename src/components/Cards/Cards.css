@@ -1,0 +1,10 @@
+.status {
+  position: absolute;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1rem;
+  right: 0px;
+  color: white;
+}

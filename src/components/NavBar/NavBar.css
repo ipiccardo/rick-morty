@@ -1,0 +1,12 @@
+.link {
+  margin-right: 20px;
+}
+
+.link a {
+  color: whitesmoke;
+  padding: 5px;
+}
+
+.link a:hover {
+  color: lightblue;
+}

@@ -1,0 +1,15 @@
+.containerButtons {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.containerButtons button {
+  margin-right: 50px;
+  margin-left: 50px;
+  width: 100px;
+  border-radius: 4px;
+}
