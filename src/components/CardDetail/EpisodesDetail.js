@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -7,8 +7,26 @@ const EpisodesDetail = () => {
   let { episodeId } = useParams();
   let [episodeData, setEpisodeData] = useState([]);
   let { characters } = episodeData;
+  const [singleCharacterData, setSingleCharacterData] = useState([]);
 
-  console.log(characters);
+  const getEpisodeCharacters = useCallback(() => {
+    characters?.map((people, index) => {
+      return (
+      async function () {
+        let singlechararacter = await fetch(people).then((resp) => resp.json());
+        setSingleCharacterData((singleCharacterData) => [
+          ...singleCharacterData,
+          singlechararacter.name,
+        ]);
+      })();
+    });
+  }, [characters]);
+
+  useEffect(() => {
+    if (episodeData) {
+      getEpisodeCharacters();
+    }
+  }, [episodeData, getEpisodeCharacters]);
 
   let api = `https://rickandmortyapi.com/api/episode/${episodeId}`;
 
@@ -36,9 +54,21 @@ const EpisodesDetail = () => {
           <Card.Title>Name: {episodeData.name}</Card.Title>
           <Card.Title>Air Date: {episodeData.air_date}</Card.Title>
           <Card.Title>Code: {episodeData.episode}</Card.Title>
-          <Card.Title>Characters: {characters}</Card.Title>
-          {/* <Card.Title>Gender: {characterData.gender}</Card.Title>
-          <Card.Title>Status: {characterData.status}</Card.Title> */}
+          <Card.Title>Characters ({singleCharacterData.length}):</Card.Title>
+          {singleCharacterData.length > 1 && (
+            <ul style={{ textAlign: "start", marginTop: "0.5rem" }}>
+              {singleCharacterData?.map((name, index) => {
+                return (
+                  <li
+                    key={index}
+                    style={{ textAlign: "start", padding: "0.5rem" }}
+                  >
+                    {name}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
           <Link to={"/"} variant="primary">
             Home
           </Link>
