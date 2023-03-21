@@ -28,7 +28,7 @@ const EpisodesDetail = () => {
           textAlign: "center",
           marginLeft: "auto",
           marginRight: "auto",
-          marginTop: "100px",
+          marginTop: "50px",
           border: "solid black",
         }}
       >

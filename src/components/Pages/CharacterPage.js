@@ -15,7 +15,6 @@ const CharacterPage = () => {
 
   const onPrev = pageNumber - 1;
 
-  // console.log(results);
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
   useEffect(() => {
@@ -37,19 +36,12 @@ const CharacterPage = () => {
           setPageNumber={setPageNumber}
         />
       </div>
-      <div>
-        <Pagination
-          info={info}
-          onNext={onNext}
-          onPrev={onPrev}
-          setPageNumber={setPageNumber}
-          pageNumber={pageNumber}
-        />
-      </div>
       <div className="flex">
         <Cards results={results} search={search} page="/" />
       </div>
       <div className="marginButton">
+        {
+          results &&
         <Pagination
           info={info}
           onNext={onNext}
@@ -57,6 +49,7 @@ const CharacterPage = () => {
           setPageNumber={setPageNumber}
           pageNumber={pageNumber}
         />
+        }
       </div>
     </div>
   );
