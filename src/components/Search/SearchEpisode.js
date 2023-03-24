@@ -3,13 +3,13 @@ import React from "react";
 const SearchEpisode = ({ setPageNumber, setId, setEpisodeId }) => {
   const handleChange = (e) => {
     setEpisodeId(e.target.value);
-    setId(e.target.value);
+    // setId(e.target.value);
     // setPageNumber(1);
   };
 
   const handleonSubmit = (e) => {
     setEpisodeId(e.target.value);
-    setId(e.target.value);
+    // setId(e.target.value);
     // setPageNumber(1);
   };
 

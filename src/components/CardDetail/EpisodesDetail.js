@@ -69,8 +69,8 @@ const EpisodesDetail = () => {
               })}
             </ul>
           )}
-          <Link to={"/"} variant="primary">
-            Home
+          <Link to={"/episode"} variant="primary">
+            back
           </Link>
         </Card.Body>
       </Card>
