@@ -18,7 +18,7 @@ const Pagination = ({ setPageNumber, onNext, onPrev, pageNumber }) => {
   return (
     <div className="containerButtons">
       <button className="btn btn-success" onClick={handlePrev}>
-        Previous
+        Prev
       </button>
       <button className="btn btn-success" onClick={handleNext}>
         Next

@@ -36,6 +36,16 @@ const CharacterPage = () => {
           setPageNumber={setPageNumber}
         />
       </div>
+      {
+          results &&
+        <Pagination
+          info={info}
+          onNext={onNext}
+          onPrev={onPrev}
+          setPageNumber={setPageNumber}
+          pageNumber={pageNumber}
+        />
+        }
       <div className="flex">
         <Cards results={results} search={search} page="/" />
       </div>
